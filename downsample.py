@@ -44,3 +44,7 @@ for full_f in tqdm(full_fs):
 
         img = img.resize((w, h))
         img.save(full_f)
+
+    if 'JPG' in full_f:
+        new_full_f = full_f.replace('JPG', 'jpg')
+        os.rename(full_f, new_full_f)

@@ -8,15 +8,15 @@ for thumb_f in tqdm(thumb_fs):
     img = Image.open(thumb_f)
     img = ImageOps.exif_transpose(img)
 
-    if min(img.size) > 360:
+    if min(img.size) > 480:
         (w, h) = img.size
 
         if w < h:
-            h = round(h / w * 360)
-            w = 360
+            h = round(h / w * 480)
+            w = 480
         else:
-            w = round(w / h * 360)
-            h = 360
+            w = round(w / h * 480)
+            h = 480
 
         img = img.resize((w, h))
         img.save(thumb_f)

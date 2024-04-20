@@ -41,7 +41,7 @@ def make_entry(photographer, prompt_i, photo_i=0):
         thumb_path = '/'.join([img_root, photographer, 'thumbs', '%02d-%02d.jpeg' % (prompt_i, photo_i)])
 
     photographer = photographer.replace('_', ' & ')
-    return templates.entry % (full_path, thumb_path, photographer, prompts[prompt_i-1])
+    return templates.entry % ('/' + full_path, '/' + thumb_path, photographer, prompts[prompt_i-1])
 
 # make the front page
 entries = [

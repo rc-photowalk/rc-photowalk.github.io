@@ -1,3 +1,4 @@
+import os
 import glob
 from PIL import Image, ImageOps
 from tqdm import tqdm
@@ -20,6 +21,10 @@ for thumb_f in tqdm(thumb_fs):
 
         img = img.resize((w, h))
         img.save(thumb_f)
+
+    if 'JPG' in thumb_f:
+        new_thumb_f = thumb_f.replace('JPG', 'jpg')
+        os.rename(thumb_f, new_thumb_f)
 
 
 full_fs = glob.glob(pj('images', '*', 'fulls', '*'))
